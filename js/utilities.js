@@ -9,11 +9,19 @@ function updateInputValue(elementId, isIncrease) {
 
   if (isIncrease) {
     elementValue += 1;
-  } else {
+  } else if(isIncrease === false && elementValue > 0) {
     elementValue -= 1;
   }
   element.value = elementValue;
   return elementValue;
+}
+
+
+
+function updateCustomInputValue(elementId, value) {
+  const element = document.getElementById(elementId);
+  element.value = value;
+
 }
 
 function getInputValue(elementId) {

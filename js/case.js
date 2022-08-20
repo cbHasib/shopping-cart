@@ -24,9 +24,16 @@ document
 document
   .getElementById("case-number-field")
   .addEventListener("keyup", function () {
-    const newCaseAmount = getInputValue("case-number-field") * 59;
-    updateElementValue("case-amount", newCaseAmount);
-    totalPrice();
+    if(getInputValue('case-number-field') >= 0){
+      const newCaseAmount = getInputValue("case-number-field") * 59;
+      updateElementValue("case-amount", newCaseAmount);
+      totalPrice();
+    }
+    else{
+      updateCustomInputValue('case-number-field', 0);
+      updateElementValue("case-amount", 0);
+      totalPrice();
+    }
   });
 
 document.getElementById("remove-case").addEventListener("click", function () {

@@ -26,9 +26,16 @@ document
 document
   .getElementById("phone-number-field")
   .addEventListener("keyup", function () {
-    const newPhoneAmount = getInputValue("phone-number-field") * 1219;
-    updateElementValue("phone-amount", newPhoneAmount);
-    totalPrice();
+    if(getInputValue('phone-number-field') >= 0){
+      const newPhoneAmount = getInputValue("phone-number-field") * 1219;
+      updateElementValue("phone-amount", newPhoneAmount);
+      totalPrice();
+    }
+    else{
+      updateCustomInputValue('phone-number-field', 0);
+      updateElementValue("phone-amount", 0);
+      totalPrice();
+    }
   });
 
 document.getElementById("remove-phone").addEventListener("click", function () {
